@@ -1,7 +1,126 @@
 <html>
-	<head>
-	</head>
-	<body>
-		<h1>{{message}}</h1>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<title>&#10084 Sarah Alexander &#10084</title>
+	<!-- Mobile Specific Metas-->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- FONT-->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
+	<!-- CSS This loads the css file-->
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/skeleton.css" />
+	<link rel="stylesheet" href="css/custom.css" />
+	<!--Favicon this loads the favicon for the browser-->
+	<link rel="icon" type="image/jpg" href="/static/images/beanie.jpg" />
+</head>
+
+<body>
+	<!--Main Container Div-->
+	<div class="container">
+
+		<!--Row 1-->
+		<div class="row">
+			<!-- Heading -->
+			<div class="one-half columns">
+				<h1>I'm learning website design to keep myself sane</h1>
+				<p>I can't give you a hug but maybe this will make you smile &#128512</p>
+			</div>
+
+			<!-- Spotify Playlist -->
+			<div class="one-half columns">
+				<iframe src="https://open.spotify.com/embed/playlist/0lVSqXqQN7KMTLer3hLq1W" width="300" height="380"
+					frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+			</div>
+		</div>
+
+		<!--Row 2: Slideshow-->
+		<div class="row">
+
+			<div class="one column">
+				<img src="/static/images/isabelle.gif" alt="Dancing Issabelle">
+			</div>
+
+			<div class="ten column">
+				<div class="mySlides">
+					<div class="numbertext">1 / 6</div>
+					<img src="/static/images/beanie.jpg" style="width:70%">
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">2 / 6</div>
+					<img src="/static/images/hearts.jpg" style="width:70%">
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">3 / 6</div>
+					<img src="/static/images/switch.jpg" style="width:70%">
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">4 / 6</div>
+					<img src="/static/images/the_runs.jpg" style="width:70%">
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">5 / 6</div>
+					<img src="/static/images/together.jpg" style="width:70%">
+				</div>
+
+				<div class="mySlides">
+					<div class="numbertext">6 / 6</div>
+					<img src="/static/images/handsome.jpg" style="width:70%">
+				</div>
+
+				<a class="prev" onclick="plusSlides(-1)">❮ </a>
+				<a class="next" onclick="plusSlides(1)">❯ </a>
+
+				<div class="caption-container">
+					<p id="caption"></p>
+				</div>
+			</div>
+
+			<div class="one column">
+				<img src="/static/images/tom_nook.gif" alt="Tommy Boy">
+			</div>
+		</div>
+
+		<!--Row 3-->
+		<div class="row">
+			<h1>Have fun in Lubbock! </h1>
+		</div>
+
+	</div>
+</body>
+<script>
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("demo");
+		var captionText = document.getElementById("caption");
+		if (n > slides.length) { slideIndex = 1 }
+		if (n < 1) { slideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+		captionText.innerHTML = dots[slideIndex - 1].alt;
+	}
+</script>
+
 </html>
