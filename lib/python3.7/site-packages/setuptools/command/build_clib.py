@@ -55,8 +55,7 @@ class build_clib(orig.build_clib):
             # Build the list to be used by newer_pairwise_group
             # each source will be auto-added to its dependencies.
             for source in sources:
-                src_deps = [source]
-                src_deps.extend(global_deps)
+                src_deps = [source, *global_deps]
                 extra_deps = obj_deps.get(source, list())
                 if not isinstance(extra_deps, (list, tuple)):
                     raise DistutilsSetupError(
